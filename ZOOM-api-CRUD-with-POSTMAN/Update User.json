@@ -1,0 +1,21 @@
+/** use PATCH method  */
+/** https://api.zoom.us/v2/users/{userID}  */
+
+
+
+{
+  "first_name": "Ravi Kishan",
+  "last_name": "Daiya",
+  /** "type": "integer",
+  "pmi": "integer",
+  "timezone": "string [date-time]",
+  "dept": "string",
+  "vanity_name": "string",
+  "host_key": "string",
+  "cms_user_id": "string",
+  "job_title": "string",
+  "company": "string",
+  "location": "string",
+  "phone_number": "string",
+  "phone_country": "string" */
+}

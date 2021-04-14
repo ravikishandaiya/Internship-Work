@@ -1,0 +1,13 @@
+/** use POST method  */
+/** link: https://api.zoom.us/v2/users */
+
+
+{
+  "action": "create",
+  "user_info": {
+    "email": "ravikishandaiya@gmail.com",
+    "type": 1,
+    "first_name": "Ravi",
+    "last_name": "Daiya"
+  }
+}
