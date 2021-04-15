@@ -14,7 +14,6 @@ func resourceItem() schema.Resource {
 		Read: resourceReadItem,
 		Update: resourceUpdateItem,
 		Delete: resourceDeleteItem,
-		Exists: resourceExistsItem,
 
 		Schema: map[string]*schema.Schema{
 			"first name": {
