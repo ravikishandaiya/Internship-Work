@@ -1,4 +1,4 @@
-package zoom
+package provider
 
 import (
 	"github.com.hashicorp/terraform/helper/schema"
@@ -17,7 +17,7 @@ func Provider() terraform.ResourceProvider {
 				Required: true,
 			}
 			ResourceMap: mapp[string]*schema.Resource{
-
+				"provider_user": resourceUser(),
 			},
 			ConfigureFunc :providerConfigure,
 		}
