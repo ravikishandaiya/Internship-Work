@@ -16,12 +16,12 @@ func resourceItem() schema.Resource {
 		Delete: resourceDeleteItem,
 
 		Schema: map[string]*schema.Schema{
-			"first name": {
+			"first_name": {
 				Type: schema.TypeString,
 				Required: true,
 				ForceNew: true,
 			}
-			"last name": {
+			"last_name": {
 				Type: schema.TypeString,
 				Required: true,
 			}
