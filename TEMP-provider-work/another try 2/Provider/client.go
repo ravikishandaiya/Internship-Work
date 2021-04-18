@@ -1,15 +1,33 @@
 package client
 
 import (
-	"bytes"
-	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
 )
 
+
+client := &http.Client{
+	checkRedirect: re
+}
+
 func main() {
-	resp, err := http.Get("https://YOUR_DOMAIN/.well-known/jwks.json")
+	resp, err := http.Get("https://api.zoom.us/v2/users/")
+	defer resp.Body.Close()
+
+	fmt.Print(err)
+
+	body,  err := io.ReadAll(resp.Body)
+
+	fmt.Print(err)
+
+	if err != nil {
+		fmt.Print("Error:\n")
+		fmt.Print(err)
+	} else {
+		fmt.Print("Responce:\n")
+		fmt.Print(body)
+	}
 }
 
 
