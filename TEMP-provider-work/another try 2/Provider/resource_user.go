@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/terraform/helper/schema"
 )
 
-func resourceItem() schema.Resource {
+func resourceUser() schema.Resource {
 	return &schema..Resource{
 		Create: resourceCreateItem,
 		Read: resourceReadItem,
