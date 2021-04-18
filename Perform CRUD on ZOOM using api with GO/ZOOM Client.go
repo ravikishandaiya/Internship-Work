@@ -7,6 +7,9 @@ import (
 	"net/http"
 )
 
+const JWT_Token string = "JWT Token"
+const base_URL string = "https://api.zoom.us/v2/users/"
+
 type ListUsers struct {
 	PageCount     int    `json:"page_count"`
 	PageNumber    int    `json:"page_number"`
@@ -32,13 +35,12 @@ type User struct {
 	RoleId        string `json:"role_id"`
 }
 
-func handleRequest() (response []byte, err error) {
+func handleRequest(userID string) (response []byte, err error) {
 	httpClient := &http.Client{}
-	url := "https://api.zoom.us/v2/users/"
+	
 	httpMethod := http.MethodGet
-	JWT_Token := "JWT Token"
-
-	req, err := http.NewRequest(httpMethod, url, nil)
+	
+	req, err := http.NewRequest(httpMethod, base_URL+userID, nil)
 	if err != nil {
 		return 
 	}
@@ -60,10 +62,11 @@ func handleRequest() (response []byte, err error) {
 
 }
 
+
 func ListUser() {
-	res, err := handleRequest()
+	res, err := handleRequest("")
 	if err != nil {
-		fmt.Println("error")
+		fmt.Println("Error\n")
 	}
 
 	var apiResponse ListUsers
@@ -72,14 +75,41 @@ func ListUser() {
 	if err != nil {
 		fmt.Println(err)
 	}
-
-	fmt.Println(apiResponse.Users)
+	
+	for i:=0; i < len(apiResponse.Users); i++ {
+		fmt.Print(apiResponse.Users[i],"\n")
+	}
 }
 
+
+func Read(userID string) {
+	res, err := handleRequest(userID)
+	if err != nil {
+		fmt.Print("Error\n")
+	}
+
+	var apiResponse User
+	err = json.Unmarshal(res, &apiResponse)
+
+	if err != nil {
+		fmt.Print(err)
+	}
+
+	fmt.Print(apiResponse, "\n")
+}
+
+
 func main() {
+	fmt.Print("List of Users:\n")
 	ListUser()
+
+	fmt.Print("Requested user:\n")
+	Read("{USER_ID}")
 	/*CreateUser
 	/*DelteUser
 	/*UpdateUser
-	/*ReadUser
+	*/
 }
+
+
+
