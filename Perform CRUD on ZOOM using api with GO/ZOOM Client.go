@@ -5,10 +5,15 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"bytes"
 )
 
-const JWT_Token string = "JWT Token"
+// login credentials
+
+const JWT_Token string = "JWT TOken"
 const base_URL string = "https://api.zoom.us/v2/users/"
+
+// struct to map responce data 
 
 type ListUsers struct {
 	PageCount     int    `json:"page_count"`
@@ -35,12 +40,102 @@ type User struct {
 	RoleId        string `json:"role_id"`
 }
 
-func handleRequest(userID string) (response []byte, err error) {
+// creating new request and autherizing  & returning responce
+
+func handleReadRequest(url string, httpMethod string) (response []byte, err error) {
 	httpClient := &http.Client{}
 	
-	httpMethod := http.MethodGet
+	var req *http.Request
+	req, err = http.NewRequest(httpMethod, url, nil)
+	if err != nil {
+		return 
+	}
+
+	req.Header.Add("Authorization", "Bearer "+JWT_Token)
+	req.Header.Add("Content-Type", "application/json")
+
+	resp, err := httpClient.Do(req)
+	if err != nil {
+		return
+	}
+
+	response, err = ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return
+	}
+
+	return
+
+}
+
+// get list for all user
+
+func ListUser() {
+	res, err := handleReadRequest(base_URL, http.MethodGet)
+	if err != nil {
+		fmt.Println("Error\n")
+	}
+
+	var apiResponse ListUsers
+	err = json.Unmarshal(res, &apiResponse)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Print("List of users:\n")
+	for i:=0; i < len(apiResponse.Users); i++ {
+		fmt.Print(apiResponse.Users[i],"\n")
+	}
+}
+
+// read a specific user
+
+func Read(userID string) {
+	res, err := handleReadRequest(base_URL+userID, http.MethodGet)
+	if err != nil {
+		fmt.Print("Error\n")
+	}
+
+	var apiResponse User
+	err = json.Unmarshal(res, &apiResponse)
+
+	if err != nil {
+		fmt.Print(err)
+	}
+
+	fmt.Print("User:/n", apiResponse, "\n")
+}
+
+
+// struct to send data to html body and for mapping data from responce 
+
+type Userinfo struct {
+	Email     string `json:"email"`
+	Type      int    `json:"type"`
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
+}
+
+type CreateUserRequest struct {
+	Action   string   `json:"action"`
+	UserInfo Userinfo `json:"user_info"`
+}
+
+type CreateUserResponse struct {
+	Id        string `json:"id"`
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
+	Email     string `json:"email"`
+	Type      int    `json:"type"`
+}
+
+//Handle create request
+
+func handleCreateRequest(url string, httpMethod string, body []byte) (response []byte, err error) {
+	httpClient := &http.Client{}
 	
-	req, err := http.NewRequest(httpMethod, base_URL+userID, nil)
+	var req *http.Request
+	req, err = http.NewRequest(httpMethod, url, bytes.NewBuffer(body))
 	if err != nil {
 		return 
 	}
@@ -63,49 +158,55 @@ func handleRequest(userID string) (response []byte, err error) {
 }
 
 
-func ListUser() {
-	res, err := handleRequest("")
+
+// function to add new user
+
+
+func createUser() {
+	createUserRequest := CreateUserRequest{
+		Action: "create",
+		UserInfo: Userinfo{
+			Email:     "abc@gmail.com",
+			Type:      1,
+			FirstName: "Ravi",
+			LastName:  "Daiya",
+		},
+	}
+
+	var reqBody []byte
+	var err error
+	reqBody, err = json.Marshal(createUserRequest)
 	if err != nil {
-		fmt.Println("Error\n")
+		return
 	}
 
-	var apiResponse ListUsers
-	err = json.Unmarshal(res, &apiResponse)
+	httpMethod := http.MethodPost
+
+	var b []byte
+	b, err = handleCreateRequest(base_URL, httpMethod, reqBody)
 
 	if err != nil {
-		fmt.Println(err)
+		return
 	}
-	
-	for i:=0; i < len(apiResponse.Users); i++ {
-		fmt.Print(apiResponse.Users[i],"\n")
-	}
-}
 
-
-func Read(userID string) {
-	res, err := handleRequest(userID)
+	var createUserResponse CreateUserResponse
+	err = json.Unmarshal(b, &createUserResponse)
 	if err != nil {
-		fmt.Print("Error\n")
+		return
 	}
 
-	var apiResponse User
-	err = json.Unmarshal(res, &apiResponse)
-
-	if err != nil {
-		fmt.Print(err)
-	}
-
-	fmt.Print(apiResponse, "\n")
+	fmt.Println(createUserResponse)
 }
 
 
 func main() {
 	fmt.Print("List of Users:\n")
-	ListUser()
-
-	fmt.Print("Requested user:\n")
-	Read("{USER_ID}")
-	/*CreateUser
+	ListUser() 
+	fmt.Print("\nRequested user:\n")
+	Read({User_ID})
+	fmt.Print("\ncreate a user:\n")
+	createUser()
+	
 	/*DelteUser
 	/*UpdateUser
 	*/
