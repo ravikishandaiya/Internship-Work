@@ -1,14 +1,13 @@
 package main
 
 import (
-	//"fmt"
-	//"regexp"
-	//"strings"
+	"fmt"
+	"regexp"
+	"strings"
 
-	//"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform/helper/schema"
 	"zoom"
 )
-/*
 
 func resourceUser() *schema.Resource {
 	return &schema.Resource{
@@ -48,9 +47,4 @@ func resourceReadItem(d *schema.ResourceData, m interface{}) error {
 	token := m.token
 	
 	client.ListUser(address, token) 
-}
-*/
-
-func main() {
-	client.ListUser("https://api.zoom.us/v2/users/", "JWT Token")
 }
