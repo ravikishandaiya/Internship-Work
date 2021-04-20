@@ -1,15 +1,17 @@
-package provider
+package main
 
 import (
-	"fmt"
-	"regexp"
-	"strings"
+	//"fmt"
+	//"regexp"
+	//"strings"
 
-	"github.com/hashicorp/terraform/helper/schema"
+	//"github.com/hashicorp/terraform/helper/schema"
+	"zoom"
 )
+/*
 
-func resourceUser() schema.Resource {
-	return &schema..Resource{
+func resourceUser() *schema.Resource {
+	return &schema.Resource{
 		Create: resourceCreateItem,
 		Read: resourceReadItem,
 		Update: resourceUpdateItem,
@@ -33,6 +35,22 @@ func resourceUser() schema.Resource {
 	}
 }
 
+
 func resourceCreateItem(d *schema.ResourceData, m interface{}) error {
 	apiClient := m.(*client.Client)
+
+}
+
+
+
+func resourceReadItem(d *schema.ResourceData, m interface{}) error {
+	address := m.address,
+	token := m.token
+	
+	client.ListUser(address, token) 
+}
+*/
+
+func main() {
+	client.ListUser("https://api.zoom.us/v2/users/", "JWT Token")
 }
