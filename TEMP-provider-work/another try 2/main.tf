@@ -9,8 +9,10 @@ resource "provider_user" "user1" {
     email = "abc@gmail.com"
 }
 
+/*
 resource "provider_user" "user2" {
     first_name = "A"
     last_name = "B"
     email = "ravi@gmail.com"
 }
+*/

@@ -1,4 +1,4 @@
-package provider
+package main
 
 import (
 	"fmt"
@@ -6,10 +6,11 @@ import (
 	"strings"
 
 	"github.com/hashicorp/terraform/helper/schema"
+	"zoom"
 )
 
-func resourceItem() schema.Resource {
-	return &schema..Resource{
+func resourceUser() *schema.Resource {
+	return &schema.Resource{
 		Create: resourceCreateItem,
 		Read: resourceReadItem,
 		Update: resourceUpdateItem,
@@ -33,6 +34,17 @@ func resourceItem() schema.Resource {
 	}
 }
 
+
 func resourceCreateItem(d *schema.ResourceData, m interface{}) error {
 	apiClient := m.(*client.Client)
+
+}
+
+
+
+func resourceReadItem(d *schema.ResourceData, m interface{}) error {
+	address := m.address,
+	token := m.token
+	
+	client.ListUser(address, token) 
 }
