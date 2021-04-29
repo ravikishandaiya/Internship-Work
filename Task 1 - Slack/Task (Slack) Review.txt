@@ -1,8 +1,15 @@
--> Does the application provide APIs for user management?
-    Yes, slack provides API for user management and other actions.
+Discovery:
+    -> Does the application provide APIs for user management?
+        Yes, slack provides API for user management and other actions.
+        Link:- https://api.slack.com/admins/workspaces
 
--> Are APIs for user management available in our plan?
-    No, for my plan I can't perform a user management operation. It requires an enterprise workspace.
+    -> Are APIs for user management available in our plan?
+        No, for my plan I can't perform a user management operation. It requires an enterprise workspace.
+        Link:- https://api.slack.com/admins/workspaces
 
--> How does the API do authentication - basic, static token, JWT, OAuth ?
-    It's the same as zoom. We build an app in the workspace and that provides a JWT token.
+    -> How does the API do authentication - basic, static token, JWT, OAuth ?
+        It's the same as zoom. We build an app in the workspace and that provides a JWT token.
+        Link:- https://api.slack.com/authentication/basics
+
+Make the API work:
+    For Postman we need enterprise edition.
