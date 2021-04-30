@@ -12,4 +12,4 @@ Discovery:
         Link:- https://api.slack.com/authentication/basics
 
 Make the API work:
-    For Postman we need enterprise edition.
+    For user management operation using Postman we need enterprise edition.
