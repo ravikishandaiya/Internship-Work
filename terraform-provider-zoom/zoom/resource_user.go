@@ -13,7 +13,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
-var authToken string
+var authToken string = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6ImxOR0pCSGp1Uk9PRktDTTY4TGpIMGciLCJleHAiOjE2MjAzNjI4MjEsImlhdCI6MTYxOTc1ODAyMn0.vbRsXIQDly5la1Phi80IsVtkBoHMxTVr5EOChIEwsmI"
 
 type Userinfo struct {
 	Email     string `json:"email"`
@@ -207,7 +207,7 @@ func handleReadRequest(userID string) (getUserResponse GetUserResponse, err erro
 	url := fmt.Sprintf("%s%s", clienturl, userID)
 
 	httpMethod := http.MethodGet
-	authToken := "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6ImxOR0pCSGp1Uk9PRktDTTY4TGpIMGciLCJleHAiOjE2MTk3NzYwODgsImlhdCI6MTYxOTE3MTI4OX0.5RLQ5WYi2-eVGH6IjLkAU-4tE3DEJAyrFLFwj-AnqB8"
+	authToken := "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6ImxOR0pCSGp1Uk9PRktDTTY4TGpIMGciLCJleHAiOjE2MTk3NjQxNzgsImlhdCI6MTYxOTc1ODc3M30.0om8lKBPT-3FyB1_R1EH3a6uvDBDKrLhD0GOPLepeu4"
 
 	httpClient := &http.Client{}
 
@@ -308,6 +308,7 @@ func deleteUser(userID string) (err error) {
 		return
 	}
 
+	authToken := "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6ImxOR0pCSGp1Uk9PRktDTTY4TGpIMGciLCJleHAiOjE2MTk3NjQxNzgsImlhdCI6MTYxOTc1ODc3M30.0om8lKBPT-3FyB1_R1EH3a6uvDBDKrLhD0GOPLepeu4"
 	req.Header.Add("Authorization", "Bearer "+authToken)
 	req.Header.Add("Content-Type", "application/json")
 
