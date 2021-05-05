@@ -10,5 +10,7 @@ Discovery:
 
     3. How does the API do authentication - basic, static token, JWT, OAuth ?
         It provides static token for authentication.
+        Follo the link to check wheter token works or not.
+        Link:- https://developers.miro.com/reference#authorization-object
 
 Make the API work:
