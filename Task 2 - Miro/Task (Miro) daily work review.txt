@@ -1,0 +1,14 @@
+Discovery:
+    1. Does the application provide APIs for user management?
+        Yes, Mira provides API for user management and other actions.
+        Link:- https://developers.miro.com/reference#introduction
+        Invite a user:- https://developers.miro.com/reference#invite-to-team
+
+    2. Are APIs for user management available in our plan?
+        Yes, Miro provides user management in basic plan.
+        Link:- https://developers.miro.com/reference#oauth-20-authorization-v2
+
+    3. How does the API do authentication - basic, static token, JWT, OAuth ?
+        It provides static token for authentication.
+
+Make the API work:
