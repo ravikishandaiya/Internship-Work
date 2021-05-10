@@ -14,3 +14,14 @@ Discovery:
         Link:- https://developers.miro.com/reference#authorization-object
 
 Make the API work:
+    Using postman, create a user                        : DONE
+    Using postman, update a user                        : DONE
+    Using postman, delete a user                        : Remaining
+    Using postman, deactivate a user                    : Action not avilable in API
+    Using postman, activate a user                      : Action not avilable in API
+    Import                                              : DONE
+    
+    
+Terraform provider:
+    create implemented in a terraform provider          : Started (Partially DONE)      Help, Link: https://developers.miro.com/reference#invite-to-team
+    
