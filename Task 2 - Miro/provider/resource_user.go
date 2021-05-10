@@ -30,6 +30,9 @@ func resourceUser() *schema.Resource {
 	}
 }
 
+func handlePostRequest(url string, httpMethod string, body []byte) (responce []byte, err error) {
+	httpClient
+}
 
 func resourceUserCreate(d *schema.ResourceData, m interface{}) {
 	team_ID :=	d.Get("team_ID").string
@@ -37,8 +40,10 @@ func resourceUserCreate(d *schema.ResourceData, m interface{}) {
 
 	url := fmt.Sprintf("https://api.miro.com/v1/teams/%s/invite", team_ID)
 	httpMethod := http.MethodPost
-	httpClient := &http.Client{}
 
-	body, err := josn.Marshal()
-	req, err := http.NewRequest(httpMethod, )
+	body, err := josn.Marshal({"emails": [email]})
+
+	if err == nil {
+		b, err := http.handlePostRequest(url, httpMethod, body)
+	}
 }
