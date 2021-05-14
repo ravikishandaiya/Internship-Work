@@ -1,0 +1,18 @@
+Discovery:
+    1. Does the application provide APIs for user management?
+
+
+    2. Are APIs for user management available in our plan?
+        
+
+    3. How does the API do authentication - basic, static token, JWT, OAuth ?
+        
+
+Make the API work:
+    Using postman, create a user                        : 
+    Using postman, update a user                        : 
+    Using postman, delete a user                        : 
+    Using postman, deactivate a user                    : 
+    Using postman, activate a user                      : 
+    Import                                              : 
+    
