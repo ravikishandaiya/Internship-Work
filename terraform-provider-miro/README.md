@@ -7,11 +7,11 @@ This terraform provider allows to perform Create ,Read ,Update, Delete and Impor
 
 * [Go](https://golang.org/doc/install) 1.16 <br>
 * [Terraform](https://www.terraform.io/downloads.html) 0.13.x <br/>
-* [Docusign](https://developers.docusign.com/) Developers account 
+* [MIRO](https://miro.com/signup/) account 
 
 
 ## Setup Miro Account
-    :heavy_exclamation_mark: [IMPORTANT] : This Provider is tested on Windows 10, So all examples are 
+    :heavy_exclamation_mark: [IMPORTANT] : This Provider is tested on Windows 10, So all assumptions are accordingly.
     :heavy_exclamation_mark: [IMPORTANT] : This provider can be successfully tested on any Miro Free account. <br><br>
 
 
