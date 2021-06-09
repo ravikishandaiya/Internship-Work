@@ -204,6 +204,7 @@ func (c *Client) GetUser(email string) (getUserStruct, error) {
 func (c *Client) Get_User_ID(email string) (user_id string, err error) {
 	Data,userIds,err := c.getAllTeamMembers()
 	if err != nil {
+		print("Error in getting list")
 		return
 	}
 	resp, err := c.checkUserExist(Data,userIds, email)
@@ -238,6 +239,7 @@ func (c *Client) DeleteUser(email string) (error) {
 	user_id, err := c.Get_User_ID(email)
 	fmt.Print("User: ",user_id)
 	if err != nil {
+		fmt.Print("Here in if condition.")
 		return err
 	}
 	url := fmt.Sprintf("https://api.miro.com/v1/team-user-connections/%s",user_id)
