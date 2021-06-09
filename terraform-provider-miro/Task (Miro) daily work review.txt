@@ -1,0 +1,27 @@
+Discovery:
+    1. Does the application provide APIs for user management?
+        Yes, Mira provides API for user management and other actions.
+        Link:- https://developers.miro.com/reference#introduction
+        Invite a user:- https://developers.miro.com/reference#invite-to-team
+
+    2. Are APIs for user management available in our plan?
+        Yes, Miro provides user management in basic plan.
+        Link:- https://developers.miro.com/reference#oauth-20-authorization-v2
+
+    3. How does the API do authentication - basic, static token, JWT, OAuth ?
+        It provides static token for authentication.
+        Follow the link to check wheter token works or not.
+        Link:- https://developers.miro.com/reference#authorization-object
+
+Make the API work:
+    Using postman, create a user                        : DONE
+    Using postman, update a user                        : DONE
+    Using postman, delete a user                        : Remaining
+    Using postman, deactivate a user                    : Action not avilable in API
+    Using postman, activate a user                      : Action not avilable in API
+    Import                                              : DONE
+    
+    
+Terraform provider:
+    create implemented in a terraform provider          : Started (Partially DONE)      Help, Link: https://developers.miro.com/reference#invite-to-team
+    
