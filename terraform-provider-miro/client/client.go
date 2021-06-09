@@ -237,9 +237,7 @@ func (c *Client) UpdateUser(email string, role string) (error) {
 
 func (c *Client) DeleteUser(email string) (error) {
 	user_id, err := c.Get_User_ID(email)
-	fmt.Print("User: ",user_id)
 	if err != nil {
-		fmt.Print("Here in if condition.")
 		return err
 	}
 	url := fmt.Sprintf("https://api.miro.com/v1/team-user-connections/%s",user_id)
