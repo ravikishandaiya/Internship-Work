@@ -39,7 +39,7 @@ It verifies that the resource attributes matches <br />
 
 <strong>5. TestAccItem_Basic </strong>
 
-It calls the destroy and exist function to test delete and create finction <br />
+It calls the destroy and exist function to test delete and create function <br />
 
 <strong>6. TestAccItem_Update</strong>
 

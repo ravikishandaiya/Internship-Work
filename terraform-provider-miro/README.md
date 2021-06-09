@@ -1,23 +1,23 @@
 # Terraform Miro Provider
 
-This terraform provider allows to perform Create ,Read ,Update, Delete and Import docusign User
+This terraform provider allows to perform Create ,Read ,Update, Delete and Import Miro User.
 
 
 ## Requirements
-
+tested on following versions of tools.
 * [Go](https://golang.org/doc/install) 1.16 <br>
-* [Terraform](https://www.terraform.io/downloads.html) 0.13.x <br/>
-* [MIRO](https://miro.com/signup/) account 
+* [Terraform](https://www.terraform.io/downloads.html) 0.15.x <br/>
+* [Miro](https://miro.com/login/) Create account & create team (follow instructions mentioned in Miro API docs)
 
 
 ## Setup Miro Account
-    :heavy_exclamation_mark: [IMPORTANT] : This Provider is tested on Windows 10, So all assumptions are accordingly.
+    :heavy_exclamation_mark: [IMPORTANT] : This Provider is tested on Windows 10, So all examples are accordingly.
     :heavy_exclamation_mark: [IMPORTANT] : This provider can be successfully tested on any Miro Free account. <br><br>
 
 
 1. Create a Miro account. (https://miro.com/signup/)
 2. And Sign in to the Miro.
-3. Go to [API, SDK & Embed] (https://miro.com/app/settings/team/{team_id}/user-profile)
+3. Follow the link create app. (https://developers.miro.com/docs/getting-started#section-step-1-get-developer-team)
 4. Agree the T&C and click on Create APP.
 5. Set App name and OAuth scopes and Copy API token.
 
@@ -56,7 +56,10 @@ For eg. `mkdir -p ~/.terraform.d/plugins/hashicorp.com/edu/miro/0.1.0/windows_am
 1. Download required binaries <br>
 2. move binary `~/.terraform.d/plugins/[architecture name]/`
 
-## Run the Terraform provider
+## Working with Terraform
+`terraform init` is used to initialize a working directory containing Terraform configuration files.
+`terraform plan` command will create an execution plan, which will preview you the changes that Terraform plans to make to your infrastructure.
+`terraform apply` will execute that plan and will make changes in infrastructure accordingly.
 
 #### Create User
 1. Add the user email type in the respective field in `main.tf`
@@ -66,10 +69,11 @@ For eg. `mkdir -p ~/.terraform.d/plugins/hashicorp.com/edu/miro/0.1.0/windows_am
 5. Set the account using invitation.
 
 #### Update the user
-Update the data of the user in the `main.tf` file and apply using `terraform apply`
+Update the data of the user in the `main.tf` file (in this case only role can be updated.)
+And apply using `terraform apply`
 
 #### Read the User Data
-Add data and output blocks in the `main.tf` file and run `terraform plan` to read user data
+Add data and output blocks in the `main.tf` file and run `terraform apply` to read the user data.
 
 #### Delete the user
 Delete the resource block of the particular user from `main.tf` file and run `terraform apply`.
