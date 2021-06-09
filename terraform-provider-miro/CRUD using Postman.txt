@@ -10,7 +10,7 @@ CRUD using Postman, url and methods
     Get user:
         GET     https://api.miro.com/v1/users/id  ,     ID is USER id e.g.(3074457358356232860), put "me" as ID for current user.
         header:
-            Authorization    Bearer jT0GtLwXJB2jzCO1dRutHYTVUKA    // this token iis expired please generate new one.
+            Authorization    Bearer jT0GtLwXJB2jzCO1dRutHYTVUKA    // this token is expired please generate new one.
 
     List all team Members:
         GET https://api.miro.com/v1/teams/id/user-connections ,   ID is team ID here. (3074457358302219228)
