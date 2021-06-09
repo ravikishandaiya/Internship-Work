@@ -204,7 +204,6 @@ func (c *Client) GetUser(email string) (getUserStruct, error) {
 func (c *Client) Get_User_ID(email string) (user_id string, err error) {
 	Data,userIds,err := c.getAllTeamMembers()
 	if err != nil {
-		print("Error in getting list")
 		return
 	}
 	resp, err := c.checkUserExist(Data,userIds, email)
